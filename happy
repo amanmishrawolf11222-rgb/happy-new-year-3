@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Love You 💖</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7, #fbc2eb);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    overflow: hidden;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 45px 35px;
+    border-radius: 35px;
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+    animation: float 4s ease-in-out infinite;
+    z-index: 5;
+  }
+
+  h1 {
+    color: #ff3f81;
+    font-size: 2.3em;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px #ffc1d6;
+  }
+
+  p {
+    font-size: 1.5em;
+    color: #ff7a7a;
+    margin: 0;
+  }
+
+  .emojis {
+    font-size: 2.4em;
+    margin-top: 15px;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+
+  .item {
+    position: absolute;
+    top: -10%;
+    font-size: 26px;
+    animation: fall linear infinite;
+    opacity: 0.9;
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(-10vh) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(110vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1>Lovee you my lubby dubby 💖</h1>
+  <p>Happy New Year ✨</p>
+  <div class="emojis">😘💋🌸💞</div>
+</div>
+
+<script>
+  const items = ["🌸","🌺","💮","🌼","💖","💕","😘","💋","✨"];
+
+  function createItem() {
+    const el = document.createElement("div");
+    el.className = "item";
+    el.innerText = items[Math.floor(Math.random() * items.length)];
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.animationDuration = (4 + Math.random() * 4) + "s";
+    el.style.fontSize = (20 + Math.random() * 15) + "px";
+    document.body.appendChild(el);
+
+    setTimeout(() => {
+      el.remove();
+    }, 9000);
+  }
+
+  setInterval(createItem, 250);
+</script>
+
+</body>
+</html>
